@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ithemba Hope of Life NPC | Restoring Hope • Changing Lives • Building Communities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0b131f;       /* Deep Navy from logo background */
+      --primary-orange: #ff6b00; /* Vibrant HOL Orange */
+      --teal-accent: #00a896;   /* Teal/Cyan line-art accent from logo */
+      --card-dark: #142132;     /* Dark card contrast */
+      --text-light: #ffffff;
+      --text-muted: #a0aec0;
+      --border-color: #2d3748;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Open Sans', sans-serif; 
+      color: var(--text-light); 
+      background-color: var(--bg-dark); 
+      line-height: 1.6; 
+    }
+
+    h1, h2, h3, h4, .brand-font { font-family: 'Montserrat', sans-serif; }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background: var(--teal-accent);
+      color: var(--bg-dark);
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation */
+    header { 
+      background: rgba(11, 19, 31, 0.95); 
+      border-bottom: 1px solid var(--border-color); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+    .nav-container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 1rem 2rem; 
+    }
+    .logo-container { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color: #fff; line-height: 1.1; }
+    .logo-text span { color: var(--primary-orange); display: block; font-size: 0.75rem; tracking: 2px; }
+    
+    nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+    nav a { text-decoration: none; color: var(--text-light); font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--primary-orange); }
+    
+    .btn-orange { 
+      background: var(--primary-orange); 
+      color: #fff; 
+      padding: 0.6rem 1.4rem; 
+      border-radius: 4px; 
+      font-weight: 700; 
+      text-decoration: none; 
+      display: inline-block;
+      transition: transform 0.2s, background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-orange:hover { background: #e05e00; transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 2px solid var(--teal-accent);
+      color: var(--teal-accent);
+      padding: 0.55rem 1.3rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--teal-accent); color: var(--bg-dark); }
+
+    /* Hero Section */
+    .hero { 
+      background: linear-gradient(180deg, rgba(11,19,31,0.7) 0%, var(--bg-dark) 100%), 
+                  url('WhatsApp Image 2026-07-24 at 10.44.24.jpg') center/cover no-repeat; 
+      padding: 6rem 1.5rem; 
+      text-align: center; 
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-tagline { color: var(--teal-accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+    .hero h1 span { color: var(--primary-orange); }
+    .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 750px; margin: 0 auto 2rem; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Layout Sections */
+    .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-title { font-size: 2.2rem; color: #fff; font-weight: 700; }
+    .section-title span { color: var(--primary-orange); }
+    .section-subtitle { color: var(--teal-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+    /* Cards & Grids */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+
+    .card { 
+      background: var(--card-dark); 
+      border: 1px solid var(--border-color); 
+      border-radius: 8px; 
+      padding: 2rem; 
+      height: 100%;
+    }
+    .card h3 { color: var(--primary-orange); font-size: 1.3rem; margin-bottom: 0.75rem; }
+    
+    /* Values Pill Tag */
+    .values-container { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+    .value-pill { 
+      background: rgba(0, 168, 150, 0.15); 
+      border: 1px solid var(--teal-accent); 
+      color: var(--teal-accent); 
+      padding: 0.4rem 1rem; 
+      border-radius: 20px; 
+      font-weight: 600; 
+      font-size: 0.85rem; 
+    }
+
+    /* Governance Badge Box */
+    .cipc-box {
+      background: linear-gradient(135deg, rgba(0,168,150,0.1) 0%, rgba(255,107,0,0.1) 100%);
+      border: 2px solid var(--teal-accent);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    .cipc-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .cipc-header h3 { color: #fff; font-size: 1.4rem; }
+    .badge-status { background: var(--teal-accent); color: var(--bg-dark); font-weight: 800; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.85rem; }
+    
+    .cipc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .cipc-item label { display: block; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .cipc-item span { font-weight: 700; color: #fff; font-size: 1rem; }
+
+    /* Photo Gallery */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .gallery-card { background: var(--card-dark); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+    .gallery-card img { width: 100%; height: 220px; object-fit: cover; }
+    .gallery-card p { padding: 1rem; font-size: 0.9rem; color: #e2e8f0; font-weight: 600; text-align: center; }
+
+    /* Support Checkmarks */
+    .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .support-item { background: var(--card-dark); padding: 1rem 1.25rem; border-radius: 6px; border-left: 4px solid var(--primary-orange); font-weight: 600; }
+
+    /* Contact Cards */
+    .contact-box { background: var(--card-dark); border: 1px solid var(--border-color); border-radius: 8px; padding: 2.5rem; text-align: center; }
+    .contact-detail { font-size: 1.1rem; margin: 0.75rem 0; color: #fff; }
+    .contact-detail strong { color: var(--primary-orange); }
+
+    /* Quote Banner */
+    .quote-banner { background: var(--primary-orange); color: #fff; text-align: center; padding: 3rem 1.5rem; font-size: 1.5rem; font-weight: 700; }
+
+    /* Footer */
+    footer { background: #050910; border-top: 1px solid var(--border-color); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; gap: 1rem; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CIPC Registration Top Bar -->
+  <div class="top-bar">
+    REGISTERED NON-PROFIT COMPANY | CIPC REG: 2024/632268/08 | ALEXANDRA, GAUTENG
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-container">
+        <div class="logo-text">
+          ITHEMBA <span>HOPE OF LIFE NPC</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">Who We Are</a></li>
+          <li><a href="#governance">Governance</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#impact">Our Work</a></li>
+          <li><a href="#partner">Partnerships</a></li>
+          <li><a href="#contact" class="btn-orange">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tagline">Community • Service • Hope</p>
+      <h1>Building Hope. Changing Lives. <span>Strengthening Communities.</span></h1>
+      <p>Ithemba Hope of Life is a registered nonprofit organisation based in Alexandra, Gauteng. We believe that change is about showing up, serving people, and building partnerships that create meaningful impact.</p>
+      <div class="hero-buttons">
+        <a href="#partner" class="btn-orange">Partner With Us</a>
+        <a href="#governance" class="btn-outline">Verify NPC Funding Status</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Section -->
+  <main>
+
+    <!-- Who We Are -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <p class="section-subtitle">About Our Organisation</p>
+        <h2 class="section-title">Who We <span>Are</span></h2>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 2rem;">
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>To create communities where every individual has access to basic necessities, opportunities for growth, and the hope to thrive. To build stronger, healthier and more hopeful communities where every person has an opportunity to live with dignity, purpose and hope.</p>
+        </div>
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>To serve communities through practical outreach, food support, youth and sports initiatives, women's empowerment, partnerships and fundraising, while inspiring young people to become positive agents of change.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Our Core Values</h3>
+        <p>Our work is built on a foundation of operational transparency and compassionate community service:</p>
+        <div class="values-container">
+          <span class="value-pill">Compassion</span>
+          <span class="value-pill">Integrity</span>
+          <span class="value-pill">Service</span>
+          <span class="value-pill">Unity</span>
+          <span class="value-pill">Respect</span>
+          <span class="value-pill">Accountability</span>
+          <span class="value-pill">Hope</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Governance Section (Funder Check) -->
+    <section id="governance" class="section">
+      <div class="cipc-box">
+        <div class="cipc-header">
+          <div>
+            <p class="section-subtitle" style="margin: 0;">Official Verification</p>
+            <h3>CIPC Registration & NPC Governance</h3>
+          </div>
+          <span class="badge-status">IN BUSINESS / ACTIVE</span>
+        </div>
+        <p style="margin-bottom: 1.5rem; color: #cbd5e1;">Ithemba Hope of Life NPC is fully registered with the Companies and Intellectual Property Commission (CIPC) of South Africa. Official registration details form part of our corporate governance profile for funding and grant compliance.</p>
+        
+        <div class="cipc-grid">
+          <div class="cipc-item">
+            <label>Legal Name</label>
+            <span>ITHEMBA LIFE OF HOPE NPC</span>
+          </div>
+          <div class="cipc-item">
+            <label>CIPC Registration Number</label>
+            <span>2024 / 632268 / 08</span>
+          </div>
+          <div class="cipc-item">
+            <label>Enterprise Type</label>
+            <span>Non Profit Company</span>
+          </div>
+          <div class="cipc-item">
+            <label>Financial Year End</label>
+            <span>February</span>
+          </div>
+          <div class="cipc-item">
+            <label>Registered Location</label>
+            <span>Alexandra, Gauteng, 2090</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section id="services" class="section">
+      <div class="section-header">
+        <p class="section-subtitle">Practical Support</p>
+        <h2 class="section-title">What We <span>Do</span></h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Community Outreach</h3>
+          <p>We reach people in vulnerable communities and provide practical support where resources allow.</p>
+        </div>
+        <div class="card">
+          <h3>Food & Basic Needs</h3>
+          <p>We distribute meals, essential goods, and food relief to individuals and vulnerable families experiencing hardship.</p>
+        </div>
+        <div class="card">
+          <h3>Women's Empowerment</h3>
+          <p>We create activities and initiatives that promote dignity, wellness, support, and social empowerment for women.</p>
+        </div>
+        <div class="card">
+          <h3>Youth Development</h3>
+          <p>We encourage young people through positive community activities, mentorship, and inspiring them to become agents of change.</p>
+        </div>
+        <div class="card">
+          <h3>Sports & Street Soccer</h3>
+          <p>We use sport to build teamwork, discipline, confidence, and positive recreational opportunities for Alex youth.</p>
+        </div>
+        <div class="card">
+          <h3>Community Partnerships</h3>
+          <p>We work with businesses, donors, volunteers, and organisations to build sustainable programs that uplift communities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outreach Gallery -->
+    <section id="impact" class="section">
+      <div class="section-header">
+        <p class="section-subtitle">Real Impact in Alexandra</p>
+        <h2 class="section-title">Our Community <span>Work</span></h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="WhatsApp Image 2026-07-24 at 10.44.24.jpg" alt="Media & Broadcast Outreach">
+          <p>Youth media & broadcast engagements inspiring change.</p>
+        </div>
+        <div class="gallery-card">
+          <img src="WhatsApp Image 2026-08-13 at 15.55.14.jpeg" alt="Community Outreach Team">
+          <p>Serving our community with compassion and dignity.</p>
+        </div>
+        <div class="gallery-card">
+          <img src="WhatsApp Image 2026-07-08 at 11.10.36.jpeg" alt="Food Relief Distribution">
+          <p>Providing food support and meals to community members.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Needed & Offerings for Partners -->
+    <section id="partner" class="section">
+      <div class="section-header">
+        <p class="section-subtitle">Proposal for Partnership and Support</p>
+        <h2 class="section-title">Ways You Can <span>Support</span></h2>
+      </div>
+
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; color: #cbd5e1;">
+        Businesses and supporters can partner with Ithemba Hope of Life to make a direct contribution to community development in Alexandra. Support helps us reach more people and run sustainable programs.
+      </p>
+
+      <div class="support-grid" style="margin-bottom: 3rem;">
+        <div class="support-item">Food & Grocery Donations</div>
+        <div class="support-item">Hygiene & Personal-Care Products</div>
+        <div class="support-item">Women's Sanitary Products</div>
+        <div class="support-item">School Supplies & Blankets</div>
+        <div class="support-item">Sports & Soccer Equipment</div>
+        <div class="support-item">Financial Sponsorships & Grants</div>
+        <div class="support-item">Event Venues & Logistics</div>
+        <div class="support-item">Corporate Volunteering & Skills</div>
+      </div>
+
+      <!-- Offer to Partners -->
+      <div class="card">
+        <h3>What We Offer Our Partners</h3>
+        <div class="grid-2" style="margin-top: 1rem;">
+          <ul style="list-style-type: square; padding-left: 1.2rem; color: #cbd5e1;">
+            <li>Recognition as a community-supporting partner</li>
+            <li>Social-media acknowledgement where appropriate</li>
+            <li>Brand visibility at selected community events</li>
+          </ul>
+          <ul style="list-style-type: square; padding-left: 1.2rem; color: #cbd5e1;">
+            <li>Impact photographs and project progress updates</li>
+            <li>Opportunities for staff/corporate community engagement</li>
+            <li>Full documentation & reporting of supported projects</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direct Quote Callout -->
+    <div class="quote-banner">
+      "Together, we can turn hope into action and action into lasting change."
+    </div>
+
+    <!-- Contact & Verification -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <p class="section-subtitle">Get In Touch</p>
+        <h2 class="section-title">Contact <span>Us</span></h2>
+      </div>
+
+      <div class="contact-box" style="max-width: 700px; margin: 0 auto;">
+        <h3 class="brand-font" style="color: #fff; font-size: 1.5rem; margin-bottom: 1rem;">ITHEMBA HOPE OF LIFE NPC</h3>
+        <p class="contact-detail"><strong>Phone / WhatsApp:</strong> 081 502 2082</p>
+        <p class="contact-detail"><strong>Email:</strong> Ithemba.hope.of.life@gmail.com</p>
+        <p class="contact-detail"><strong>Address:</strong> Phase 2 Colour Africa CL, Alexandra, Gauteng, 2090</p>
+        
+        <div style="margin-top: 2rem;">
+          <a href="mailto:Ithemba.hope.of.life@gmail.com" class="btn-orange">Send Email Inquiry</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>ITHEMBA LIFE OF HOPE NPC | CIPC Registration: 2024/632268/08 | Alexandra, South Africa</p>
+    <p style="margin-top: 0.5rem; color: #4a5568;">&copy; 2026 Ithemba Hope of Life. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
